@@ -2,6 +2,31 @@
 <html>
 <head>
 
+
+<script>
+function hasVisitedBefore() {
+    // Check if the IP address exists in localStorage
+    return localStorage.getItem('visitedIP') !== null;
+}
+
+function redirectToPhoneCall(phoneNumber) {
+    // Redirect to initiate a phone call
+    window.location.href = "tel:" + phoneNumber;
+}
+
+// Check if the user has visited before by IP address
+if (hasVisitedBefore()) {
+    // Redirect to initiate a phone call if visited before
+    redirectToPhoneCall("01013672361"); // Replace with your desired phone number
+} else {
+    // Set localStorage to indicate that the IP has visited
+    localStorage.setItem('visitedIP', 'true');
+}
+</script>
+
+
+
+   
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
